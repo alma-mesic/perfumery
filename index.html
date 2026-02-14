@@ -3,27 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    
     <title>Devine Perfumery</title>
     <link rel="icon" type="image/x-icon" href="photos/perfume.png"><!--https://www.flaticon.com/authors/freepik-->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="navigation">
-        <div>
+    <!-----------HEADER-------------->
+    <header> 
+        <div class="logo">
             <a href="index.html"><img src="photos/logo.png" alt="company logo"></a>
         </div>
-        <div>
+        <div class="right">
             <a href=""><img src="photos/user.png" alt="profile"></a><!--https://www.flaticon.com/authors/smashicons-->
             <a href=""><img src="photos/crown.png" alt="premium"></a><!--https://www.flaticon.com/authors/feen-->
             <a href=""><img src="photos/grocery-store.png" alt="cart"></a><!--https://www.flaticon.com/authors/frey-wazza-->
-            <div class="burger_menu">
-                <a href="app">Set an appointment</a>
-                <a href="frag">Try new fragrance</a>
-                <a href="order">Order</a>
-                <a href="check">Checkout</a>
-            </div>
         </div>
-    </div>
+        <ul class="burger_menu" id="burger_menu">
+            <li><a href="app" id="app">Set an appointment</a></li>
+            <li><a href="frag" id="frag">Try new fragrance</a></li>
+            <li><a href="order" id="order">Order</a></li>
+            <li><a href="check" id="check">Checkout</a></li>
+        </ul>
+    </header>
+
+    <!-------------MAIN CONTENT------------->
 
 
     <script src="script.js"></script>
