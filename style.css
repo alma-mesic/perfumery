@@ -176,3 +176,54 @@ header img{
     color: #151A18;
     transform: none;
 }
+
+
+
+
+
+
+
+
+/***************footer*****************/
+footer{
+    background-color: #0F0B08;
+    color: #B89A5A;            
+    padding: 60px 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+footer .kolone{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+footer .kolone a{
+    color: #B89A5A;
+    text-decoration: none;
+    margin: 0 8px;
+    transition: all 0.3s ease;
+}
+footer .kolone a:hover{
+    color: #D4B06A; 
+}
+
+footer .mreze a{
+    color: #B89A5A;
+    margin: 0 8px;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+footer .mreze a:hover{
+    color: #D4B06A;
+}
+
+footer p{
+    margin-top: 20px;
+    font-size: 12px;
+    opacity: 0.8; 
+}
