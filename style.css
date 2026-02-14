@@ -5,15 +5,22 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: #151A18;
+    color: #F3E7CF;
+}
+
+/***************navbar*****************/
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #1C140F;
+    background-color: #0B1411;
     color: #E6C27A;
     position: relative;
     height: 85px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 header img{
     height: 35px;
@@ -34,10 +41,7 @@ header img{
     transition: all 0.3s ease;
 }
 .right img:hover{
-    filter: 
-        drop-shadow(0 0 5px #F4D9A6)
-        drop-shadow(0 0 15px #D9A441)
-        drop-shadow(0 0 0px rgba(217,164,65,0.5));
+    filter: drop-shadow(0 0 5px #F4D9A6);
     transform: scale(1.1);
 }
 
@@ -83,28 +87,92 @@ header img{
     margin-left: -5px;
 }
 
-.container{
-    padding: 40px;
+.sfh{
+    font-family: 'Great Vibes', cursive;
+    text-align: center;
+    font-size: 70px;
+    letter-spacing: 2px;
+    margin: 100px 0 50px 0;
+    color: #D4B06A;
+    position: relative;
+    text-shadow: 0 0 15px rgba(212,176,106,0.2);
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.sfh.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sfh::after{
+    content: "";
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(to right, #D4B06A, transparent);
+    margin: 15px auto 0;
+    opacity: 0;
+    transform: scaleX(0);
+    transition: all 1s ease 0.5s;
+}
+
+.sfh.show::after{
+    opacity: 1;
+    transform: scaleX(1);
 }
 
 .for_her, .for_him{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 50px;
     margin-bottom: 60px;
+    padding: 60px;
 }
 
 .product{
-    text-align: center;
+    background-color: #1C2320; 
+    padding: 30px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: none;  
+    border: 1px solid rgba(255,255,255,0.05);
 }
-
+.product:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
 .product img{
     width: 100%;
     height: 250px;
     object-fit: cover;
-    transition: 0.3s ease;
+    border-radius: 12px;
+}
+.product p:first-of-type{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    letter-spacing: 1px;
 }
 
-.product img:hover{
-    transform: scale(1.05);
+.product p:last-of-type{
+    margin-top: 5px;
+    font-weight: bold;
+}
+.add{
+    background: transparent;
+    border: 1px solid #B89A5A;
+    color: #B89A5A;
+    border-radius: 2px;
+    padding: 8px 18px;
+    letter-spacing: 1px;
+    font-size: 12px;
+    width: 120px;
+    margin-top: 15px;
+    transition: all 0.5s ease;
+}
+.add:hover{
+    background: #B89A5A;
+    color: #151A18;
+    transform: none;
 }

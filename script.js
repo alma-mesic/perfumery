@@ -7,6 +7,19 @@ document.getElementById("burger").onclick = function(){
 
 
 /*****************ORDER*********************/
+window.addEventListener("load", function() {
+    document.getElementById("titleHer").classList.add("show");
+});
+
+window.addEventListener("scroll", function() {
+    let titleHim = document.getElementById("titleHim");
+    let position = titleHim.getBoundingClientRect().top;
+    let screenPosition = window.innerHeight / 1.2;
+
+    if(position < screenPosition){
+        titleHim.classList.add("show");
+    }
+});
 
 const parfumesF = [
     {
@@ -40,6 +53,21 @@ const parfumesF = [
         image: "parfemi/F/yslF.jpg"
     },
     {
+        text: "Dolce and Gabbana",
+        price: "$190",
+        image: "parfemi/F/db.jpg"
+    },
+    {
+        text: "Versace",
+        price: "$210",
+        image: "parfemi/F/versace.avif"
+    },
+    {
+        text: "Victoria Secret Bombshell ",
+        price: "$195",
+        image: "parfemi/F/vs.avif"
+    },
+    {
         text: "Golden Essence",
         price: "$90",
         image: "parfemi/F/2.png"
@@ -53,7 +81,7 @@ const parfumesF = [
         text: "Skalneli Pale",
         price: "$95",
         image: "parfemi/F/3.png"
-    },  
+    }
 ]
 const parfumesM = [
     {
@@ -87,19 +115,34 @@ const parfumesM = [
         image: "parfemi/M/pradaM.jpg"
     },
     {
+        text: "Dolce and Gabbana",
+        price: "$390",
+        image: "parfemi/M/db.webp"
+    },
+    {
+        text: "Moschino",
+        price: "$110",
+        image: "parfemi/M/moschino.jpg"
+    },
+    {
+        text: "Versace",
+        price: "$95",
+        image: "parfemi/M/versace.jpg"
+    }, 
+    {
         text: "Mystery Dark Oud",
         price: "$90",
-        image: "parfemi/F/5.png"
+        image: "parfemi/M/5.png"
     },
     {
         text: "Royal Musk",
         price: "$110",
-        image: "parfemi/F/6.png"
+        image: "parfemi/M/6.png"
     },
     {
         text: "Skalneli Pale",
         price: "$95",
-        image: "parfemi/F/4.png"
+        image: "parfemi/M/4.png"
     },  
 ]
 function renderPerfumes(data, containerId) {
@@ -113,7 +156,7 @@ function renderPerfumes(data, containerId) {
             <img src="${perfume.image}" alt="${perfume.text}">
             <p>${perfume.text}</p>
             <p>${perfume.price}</p>
-            <button>Add to Cart</button>
+            <button class="add">Add to Cart</button>
         `;
 
         container.appendChild(card);
