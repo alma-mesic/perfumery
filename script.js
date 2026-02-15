@@ -147,6 +147,7 @@ const parfumesM = [
 ]
 function renderPerfumes(data, containerId) {
     const container = document.getElementById(containerId);
+    if(!container) return;
 
     data.forEach(perfume => {
         const card = document.createElement("div");
@@ -158,11 +159,116 @@ function renderPerfumes(data, containerId) {
             <p>${perfume.price}</p>
             <button class="add">Add to Cart</button>
         `;
-
         container.appendChild(card);
+
+        const button = card.querySelector(".add");
+        button.addEventListener("click", function(){
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // Provjeri da li proizvod već postoji u cartu
+            const existing = cart.find(p => p.text === perfume.text);
+            if(existing){
+                existing.quantity += 1;
+            } else {
+                cart.push({...perfume, quantity: 1});
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(`${perfume.text} added to cart`);
+        });
     });
 }
 window.onload = function() {
     renderPerfumes(parfumesF, "forHer");
     renderPerfumes(parfumesM, "forHim");
 };
+
+/*****************CHECKOUT*********************/
+const openBtn = document.getElementById("showProducts");
+const popup = document.getElementById("productPopup");
+const closeBtn = document.getElementById("closePopup");
+const productList = document.getElementById("productList");
+const totalPrice = document.getElementById("totalPrice");
+
+// Create Clear Cart button
+const clearCartBtn = document.createElement("button");
+clearCartBtn.textContent = "Clear Cart";
+clearCartBtn.id = "clearCart";
+clearCartBtn.style.marginTop = "10px";
+if(productList) productList.parentElement.appendChild(clearCartBtn);
+
+let total = 0;
+
+function updatePopup(){
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    productList.innerHTML = "";
+    total=0;
+
+    if(cart.length === 0){
+        productList.innerHTML = "<p>Nothing selected.</p>";
+        totalPrice.textContent = "";
+        return;
+    }
+
+    cart.forEach((product, index) => {
+        const priceNum = parseFloat(product.price.replace("$",""));
+        total += priceNum * product.quantity;
+
+        const div = document.createElement("div");
+        div.classList.add("product-item");
+        div.innerHTML = `
+            <img src="${product.image}" alt="${product.text}">
+            <div class="product-info">${product.text} x ${product.quantity}</div>
+            <div class="product-price">$${priceNum * product.quantity}</div>
+            <i class="fa-solid fa-delete-left" id="remove-item"></i>
+        `;
+        productList.appendChild(div);
+
+        // Remove button logic
+        const removeBtn = div.querySelector("#remove-item");
+        removeBtn.addEventListener("click", () => {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const item = cart.find(p => p.text === product.text);
+            if(item.quantity > 1){
+                item.quantity -= 1;
+            } else {
+                cart = cart.filter(p => p.text !== product.text);
+            }
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updatePopup();
+        });
+    });
+
+    totalPrice.textContent = "Total: $" + total;
+}
+
+// Open popup
+if(openBtn){
+    openBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        updatePopup();
+        popup.classList.remove("hidden");
+    });
+}
+
+// Close popup
+if(closeBtn){
+    closeBtn.addEventListener("click", () => popup.classList.add("hidden"));
+}
+
+// Clear cart
+clearCartBtn.addEventListener("click", () => {
+    localStorage.removeItem("cart");
+    updatePopup();
+});
+
+document.getElementById("payp").onclick = function(e){
+    e.preventDefault();
+    let priceee = document.getElementById("price");
+    let shipping = document.getElementById("shipping");
+    
+    priceee.textContent = "Price: $" + total;
+    priceee.classList.remove("hidden");
+    shipping.classList.remove("hidden");
+
+}

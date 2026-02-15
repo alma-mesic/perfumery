@@ -34,8 +34,38 @@
     </header>
 
     <!-------------MAIN CONTENT------------->
+    <div class="main-check">
+        <form>
+            <input type="email" id="email" placeholder="Email Adress"><br><br>
+            <input type="tel" id="tel" placeholder="Phone number"><br><br>
+            <input type="number" id="card" placeholder="Card number "><br><br>
+            <div id="card-types">
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-cc-apple-pay"></i>
+            </div><br>
+            <div id="check">
+                <button class="add" id="showProducts">Your products</button>
+                <button class="add" id="payp">Pay</button>
+            </div><br>
+            <p id="price" class="pricee hidden">Price: </p>
+            <p class="shipping  hidden" id="shipping">Shipping: 3 to 4 business days</p> 
+        </form>
+    </div>
+    <!------popup s proizvodima--------->
+    <div id="productPopup" class="product-popup hidden">
+        <div class="popup-content">
+            <h3>Your Selection</h3>
+            <div id="productList" class="popup-products"></div>
+            <div class="popup-total">
+                <hr>
+                <p id="totalPrice">Total: €0</p>
+            </div>
 
-
+            <button id="closePopup">Close</button>
+        </div>
+    </div>
     <!--------------FOOTER------------------->
     <footer>
         <div class="kolone">
