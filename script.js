@@ -13,6 +13,7 @@ window.addEventListener("load", function() {
 
 window.addEventListener("scroll", function() {
     let titleHim = document.getElementById("titleHim");
+    if(!titleHim) return;
     let position = titleHim.getBoundingClientRect().top;
     let screenPosition = window.innerHeight / 1.2;
 
@@ -165,7 +166,6 @@ function renderPerfumes(data, containerId) {
         button.addEventListener("click", function(){
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-            // Provjeri da li proizvod već postoji u cartu
             const existing = cart.find(p => p.text === perfume.text);
             if(existing){
                 existing.quantity += 1;
@@ -262,33 +262,36 @@ clearCartBtn.addEventListener("click", () => {
     updatePopup();
 });
 
-document.getElementById("payp").onclick = function(e){
-    e.preventDefault();
-    let priceee = document.getElementById("price");
-    let shipping = document.getElementById("shipping");
-    
-    priceee.textContent = "Price: $" + total;
-    shipping.textContent = "Shipping in 3  to 4 business days";
-    priceee.classList.remove("hidden");
-    shipping.classList.remove("hidden");
+const payButton = document.getElementById("payp");
+if (payButton) {
+    payButton.addEventListener("click", function(e){
+        e.preventDefault();
+
+        const priceee = document.getElementById("price");
+        const shipping = document.getElementById("shipping");
+
+        if(priceee && shipping){
+            priceee.textContent = "Price: $" + total;
+            shipping.textContent = "Shipping in 3 to 4 business days";
+
+            priceee.classList.remove("hidden");
+            shipping.classList.remove("hidden");
+        }
+    });
 }
 
 document.getElementById("ok").onclick = function(e){
     e.preventDefault();
+
     let name = document.getElementById("name").value;
     let lname = document.getElementById("lastname").value;
     let date = document.getElementById("date").value;
     let time = document.getElementById("time").value;
+
     if(!name || !lname || !date || !time){
         alert("Please fill in all required fields!");
         return;
     }else{
-        alert(`Your appointment was set on ${date} at ${time}. We will be happy to welcome you, ${name + " " + lname} `);
-        document.getElementById("name").value = "";
-        document.getElementById("lastname").value = "";
-        document.getElementById("date").value = "";
-        document.getElementById("time").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("message").value = "";
+        alert(`Your appointment was set on ${date} at ${time}. We will be happy to welcome you, ${name} ${lname}`);
     }
-}
+};
