@@ -8,7 +8,10 @@ document.getElementById("burger").onclick = function(){
 
 /*****************ORDER*********************/
 window.addEventListener("load", function() {
-    document.getElementById("titleHer").classList.add("show");
+    const collectionTitle = document.getElementById("titleHer");
+    if (collectionTitle) {
+        collectionTitle.classList.add("show");
+    }
 });
 
 window.addEventListener("scroll", function() {
@@ -280,18 +283,32 @@ if (payButton) {
     });
 }
 
-document.getElementById("ok").onclick = function(e){
-    e.preventDefault();
-
-    let name = document.getElementById("name").value;
-    let lname = document.getElementById("lastname").value;
-    let date = document.getElementById("date").value;
-    let time = document.getElementById("time").value;
-
-    if(!name || !lname || !date || !time){
-        alert("Please fill in all required fields!");
-        return;
-    }else{
-        alert(`Your appointment was set on ${date} at ${time}. We will be happy to welcome you, ${name} ${lname}`);
+document.addEventListener("DOMContentLoaded", function () {
+    const okBtn = document.getElementById("ok");
+    if (okBtn) {
+        okBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            const name = document.getElementById("name").value;
+            const lname = document.getElementById("lastname").value;
+            const date = document.getElementById("date").value;
+            const time = document.getElementById("time").value;
+            if (!name || !lname || !date || !time) {
+                alert("Please fill in all required fields!");
+                return;
+            }
+            alert(`Your appointment was set on ${date} at ${time}. We will be happy to welcome you, ${name} ${lname}`);
+        });
     }
-};
+});
+
+
+/******************FRAGRANCE*********************/
+document.addEventListener("DOMContentLoaded", function() {
+    const collectionTitle = document.getElementById("col");
+    if (collectionTitle) {
+        collectionTitle.classList.add("show");
+    }
+});
+
+
+
