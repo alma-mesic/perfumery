@@ -180,7 +180,7 @@ header img{
 
 /***************checkout*****************/
 .main-check{
-    margin: 100px 20px;
+    margin: 50px 20px;
     display: flex;
     justify-content: center;
 }
@@ -285,10 +285,11 @@ form input:focus{
     z-index: 3000;
 }
 
-.hidden{
+.product-popup.hidden,
+.pricee.hidden,
+.shipping.hidden{
     display: none;
 }
-
 .popup-content{
     background: #1C2320;
     width: 420px;
@@ -416,4 +417,25 @@ footer p{
     margin-top: 20px;
     font-size: 12px;
     opacity: 0.8; 
+}
+
+/***************appointment*****************/
+form h2{
+    text-align: center;
+    font-family: 'Great Vibes', cursive;;
+}
+#lastname,
+#time{
+    margin-left: 15px;
+    display: inline;
+    width: 160px;
+}
+#name,
+#date{
+    margin-right: 10px;
+    display: inline;
+    width: 160px;
+}
+#message{
+    height: 150px;
 }
