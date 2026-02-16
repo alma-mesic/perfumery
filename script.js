@@ -310,5 +310,68 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function(){
+
+    const hers = document.getElementById("hers");
+    const his = document.getElementById("his");
+    const select = document.getElementById("type");
+
+    if(!hers || !his || !select) return;
+
+    const newHers = parfumesF.filter(p => 
+        ["Golden Essence", "Midnight Bloom", "Skalneli Pale"].includes(p.text)
+    );
+
+    const newHis = parfumesM.filter(p => 
+        ["Skalneli Pale", "Royal Musk", "Mystery Dark Oud"].includes(p.text)
+    );
+
+    function render(data, container){
+        container.innerHTML = ""; 
+        data.forEach(perfume => {
+            const card = document.createElement("div");
+            card.classList.add("product");
+
+            card.innerHTML = `
+                <img src="${perfume.image}" alt="${perfume.text}">
+                <p>${perfume.text}</p>
+            `;
+
+            container.appendChild(card);
+        });
+    }
+
+    select.value = "all";
+    hers.style.display = "grid";
+    his.style.display = "grid";
+    render(newHers, hers);
+    render(newHis, his);
+
+    select.addEventListener("change", function(){
+
+        if(this.value === "all"){
+            hers.style.display = "grid";
+            his.style.display = "grid";
+            render(newHers, hers);
+            render(newHis, his);
+        }
+
+        if(this.value === "female"){
+            hers.style.display = "grid";
+            his.style.display = "none";
+            render(newHers, hers);
+        }
+
+        if(this.value === "male"){
+            hers.style.display = "none";
+            his.style.display = "grid";
+            render(newHis, his);
+        }
+
+    });
+
+});
+
+
 
 
