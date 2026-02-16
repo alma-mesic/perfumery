@@ -373,5 +373,134 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 
+/******************MAIN*********************/
+function handleFreeSignup() {
+    const form = document.getElementById('freeForm');
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+
+    if (name && email) {
+        alert(`Thank you, ${name}! You are signed up for free delivery and monthly samples.`);
+        form.reset();
+    } else {
+        alert("Please fill out all fields.");
+    }
+}
+
+function handlePremiumSignup() {
+    const form = document.getElementById('premiumForm');
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const address = form.address.value.trim();
+
+    if (name && email && address) {
+        alert(`Thank you, ${name}! You are now subscribed to Premium Access. Your exclusive scents will be delivered to ${address}.`);
+        form.reset();
+    } else {
+        alert("Please fill out all fields.");
+    }
+}
+
+const perfumes = [
+    {
+        brand: "Clive Christian",
+        name: "XXI Art Deco Cypress",
+        size: "Eau de parfum, 50 ml, Male",
+        img: "parfemi/scroll/6.png"
+    },
+    {
+        brand: "Amouage",
+        name: "Decision",
+        size: "Eau de parfum, 100 ml, Unisex",
+        img: "parfemi/scroll/1.png"
+    },
+    {
+        brand: "Fragrance du Bois",
+        name: "Brume Du Matin",
+        size: "Eau de parfum, 100 ml, Unisex",
+        img: "parfemi/scroll/2.png"
+    },
+    {
+        brand: "Electimuss",
+        name: "Maroccan Medjool",
+        size: "Extrait de parfum, 100 ml, Unisex",
+        img: "parfemi/scroll/3.png"
+    },
+    {
+        brand: "Clive Christian",
+        name: "No1",
+        size: "Eau de parfum, 50 ml, Female",
+        img: "parfemi/scroll/4.png"
+    },
+    {
+        brand: "Fragrance du Bois",
+        name: "Amber OUD Intense",
+        size: "Eau de parfum, 100 ml, Unisex",
+        img: "parfemi/scroll/5.png"
+    },
+    {
+        brand: "Roja",
+        name: "Elysium",
+        size: "Eau de parfum, 100 ml, Male",
+        img: "parfemi/scroll/7.png"
+    },
+    {
+        brand: "Clive Christian",
+        name: "Town&Country",
+        size: "Eau de parfum, 50 ml, Unisex",
+        img: "parfemi/scroll/8.png"
+    },
+    {
+        brand: "Roja",
+        name: "Elysium",
+        size: "Eau de parfum, 50 ml, Female",
+        img: "parfemi/scroll/9.png"
+    },
+    {
+        brand: "Parfums de Maryl",
+        name: "Delina Exclusif",
+        size: "Eau de parfum, 75 ml, Female",
+        img: "parfemi/scroll/10.png"
+    },
+    {
+        brand: "Amouage",
+        name: "Interlude 53",
+        size: "Eau de parfum, 100 ml, Unisex",
+        img: "parfemi/scroll/11.png"
+    }
+];
+
+const carousel = document.getElementById('carousel');
+
+perfumes.forEach(perfume => {
+    const div = document.createElement('div');
+    div.classList.add('perfume');
+    div.innerHTML = `
+        <img src="${perfume.img}" alt="${perfume.name}">
+        <h4>${perfume.brand}</h4>
+        <p>${perfume.name}</p>
+        <span>${perfume.size}</span>
+    `;
+    carousel.appendChild(div);
+});
+
+// Scroll strelice
+const leftBtn = document.querySelector('.scroll-btn.left');
+const rightBtn = document.querySelector('.scroll-btn.right');
+const scrollAmount = 220;
+
+leftBtn.addEventListener('click', () => {
+    carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+});
+
+rightBtn.addEventListener('click', () => {
+    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+});
+
+
+
+
+
+
 
 

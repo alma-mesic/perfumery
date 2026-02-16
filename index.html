@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
     <title>Devine Perfumery</title>
     <link rel="icon" type="image/x-icon" href="photos/perfume.png"><!--https://www.flaticon.com/authors/freepik-->
     <link rel="stylesheet" href="style.css">
@@ -34,11 +35,68 @@
     </header>
 
     <!-------------MAIN CONTENT------------->
+    <section id="top-offers">
+        <h2>Top offers</h2>
+        <p>ONLY THE BEST OF THE BEST</p>
+        <div class="carousel-container">
+            <button class="scroll-btn left">&#10094;</button>
+            <div class="carousel" id="carousel">
+                <!-- Parfemi će se generisati preko JS -->
+            </div>
+            <button class="scroll-btn right">&#10095;</button>
+        </div>
+    </section>
+    <section id="section1">
+        <div id="history">
+            <div class="history-img">
+                <img src="photos/par3.jpg" alt="historical perfume bottles">
+            </div>
+            <div class="history-text">
+                <h2>Our Perfume Heritage</h2>
+                <p>Devine Perfumery began as a small boutique in the heart of the city, dedicated to crafting fragrances that blend tradition with modern luxury. Over the decades, we have developed unique scents, carefully selecting ingredients to create unforgettable olfactory experiences. Our commitment to quality and elegance is reflected in every bottle – from classic notes to contemporary compositions. Discover the essence of luxury through our story and find your signature scent.</p>
+                <hr>
+                <p>Experience the art of perfume like never before – elegance in every drop, luxury in every scent.</p>
+            </div>
+        </div>
+    </section>
+    <section id="section2">
+        <div class="gallery">
+            <img src="photos/par1.jpg" alt="luxury perfume 1">
+            <img src="photos/par4.jpg" alt="luxury perfume 2">
+            <img src="photos/par2.jpg" alt="luxury perfume 3">
+        </div>
+        <div class="gallery-text">
+            <h3>Explore Our Collection</h3>
+            <p>Each fragrance is carefully selected to reflect sophistication and elegance. Swipe through our exclusive lineup to find your signature scent.</p>
+            <button onclick="window.location.href='fragrance.html'">See Full Collection</button>
+        </div>
+    </section>
 
+    <section id="section3">
+        <div class="signup-container">
+            <div class="signup">
+                <h3>Free Signup</h3>
+                <p>Sign up today to enjoy free delivery on your first order, receive monthly fragrance samples, and get early access to special offers and personalized recommendations.</p><br>
+                <form id="freeForm">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="address" placeholder="Delivery Address" required>
+                </form><br>
+                <button onclick="handleFreeSignup()">Register Now</button>
+            </div>
 
-
-
-
+            <div class="signup">
+                <h3>Premium Access</h3>
+                <p>Subscribe to our premium plan to receive exclusive scents every month, early access to new collections, and personalized recommendations.</p><br>
+                <form id="premiumForm">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="address" placeholder="Delivery Address" required>
+                </form><br>
+                <button onclick="handlePremiumSignup()">Subscribe</button>
+            </div>
+        </div>
+    </section>
 
 
     <!--------------FOOTER------------------->
@@ -52,8 +110,8 @@
             <div class="navigation">
                 <a href="index.html">Home</a>
                 <a href="fragrance.html">New Collection</a>
-                <a href="about.html">About Us</a>
-                <a href="contact.html">Contact</a>
+                <a href="#history">About Us</a>
+                <a href="appointment.html">Contact</a>
             </div>
         </div>
         <div class="mreze">
