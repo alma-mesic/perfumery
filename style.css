@@ -185,6 +185,11 @@ header img{
     justify-content: center;
 }
 
+.checking_out{
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    margin-bottom: 30px;
+}
 form{
     width: 100%;
     max-width: 420px;
@@ -422,7 +427,7 @@ footer p{
 /***************appointment*****************/
 form h2{
     text-align: center;
-    font-family: 'Great Vibes', cursive;;
+    font-family: 'Great Vibes', cursive;
 }
 #lastname,
 #time{
