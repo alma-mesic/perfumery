@@ -9,6 +9,10 @@
 *::after {
     box-sizing: border-box;
 }
+html {
+    scroll-behavior: smooth;
+}
+
 
 h2 {
     font-size: clamp(24px, 4vw, 40px);
@@ -762,13 +766,15 @@ select option::placeholder{
     pointer-events: none;
 }
 #history {
-    display: flex;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 60px;
     max-width: 1200px;
-    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
     color: #F3E7CF;
 }
+
 
 .history-img {
     flex: 1;
@@ -777,10 +783,12 @@ select option::placeholder{
 }
 
 .history-img img {
-    width: 320px;
-    border: 4px solid #D4B06A; 
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    border: 4px solid #D4B06A;
     border-radius: 12px;
-    box-shadow: 0 0 25px rgba(212,176,106,0.7); 
+    box-shadow: 0 0 25px rgba(212,176,106,0.7);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -802,19 +810,20 @@ select option::placeholder{
 .history-text {
     flex: 2;
     display: flex;
+    max-width: 600px;
     flex-direction: column;
     justify-content: center;
 }
 
 .history-text h2 {
     font-family: 'Great Vibes', cursive;
-    font-size: 46px;
+    font-size: clamp(28px, 4vw, 46px);
     color: #D4B06A;
     margin-bottom: 20px;
 }
 
 .history-text p {
-    font-size: 18px;
+    font-size: clamp(14px, 1.4vw, 18px);
     line-height: 1.6;
     margin-bottom: 15px;
 }
@@ -845,24 +854,25 @@ select option::placeholder{
 }
 #section2 .gallery {
     display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
+    align-items: center;
+    gap: 25px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    justify-content: center; /* centriranje galerije na desktopu */
+    padding-bottom: 10px;
+}
+#section2 .gallery::-webkit-scrollbar {
+    display: none;
 }
 
 #section2 .gallery img {
-    width: 250px;
+    flex: 0 0 300px;
+    height: 350px;
+    object-fit: cover;
     border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(212,176,106,0.3);
-    margin: 20px 50px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    scroll-snap-align: center;
 }
 
-#section2 .gallery img:hover {
-    transform: translateY(-6px) scale(1.05);
-    box-shadow: 0 15px 30px rgba(212,176,106,0.5);
-}
 
 #section2 .gallery-text h3 {
     font-family: 'Great Vibes', cursive;
@@ -987,6 +997,10 @@ select option::placeholder{
 /*****************RESPONZIVNOST************************/
 @media (max-width: 1024px) {
 
+    #section2 .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center; /* centriraj galeriju */
+    }
     .for_her,
     .for_him {
         grid-template-columns: repeat(2, 1fr);
@@ -1026,6 +1040,20 @@ select option::placeholder{
 }
 @media (max-width: 768px) {
 
+     #section2 .gallery img {
+        flex: 0 0 80%;        
+        height: auto;         
+        scroll-snap-align: center; 
+        border-radius: 12px;
+    }
+
+    #section2 .gallery {
+        gap: 15px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        justify-content: center; 
+    }
     header {
         padding: 10px 15px;
         height: auto;
@@ -1079,6 +1107,19 @@ select option::placeholder{
 
     .perfume {
         min-width: 160px;
+    }
+     #history {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .history-text {
+        max-width: 100%;
+    }
+
+    .history-img img {
+        max-width: 280px;
     }
 }
 @media (max-width: 480px) {
