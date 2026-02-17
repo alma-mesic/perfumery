@@ -35,15 +35,19 @@
     </header>
 
     <!-------------MAIN CONTENT------------->
-    <div class="main-check">
-        <form>
+    <div class="main-check" style="display: flex; justify-content: center; padding: 60px 20px;">
+        <form style="width: 100%; max-width: 600px; display: flex; flex-direction: column;">
             <h2>Set and appointment with us</h2><br>
-            <input type="text" id="name" placeholder="Name">
-            <input type="text" id="lastname" placeholder="Last Name"><br>
-            <input type="email" id="email" placeholder="Email"><br>
-            <input type="text" id="message" placeholder="Message"><br>
-            <input type="date" id="date">
-            <input type="time" id="time">
+            <div class="row">
+                <input type="text" id="name" placeholder="Name" style="width: 100%; padding: 14px 16px; margin-bottom: 7px; margin-top: 17px;border: 1px solid #D4B06A; background: rgba(0,0,0,0.4); color: #F3E7CF; font-size: 16px;">
+                <input type="text" id="lastname" placeholder="Last Name" style="width: 100%; padding: 14px 16px; margin-bottom: 18px; border: 1px solid #D4B06A; background: rgba(0,0,0,0.4); color: #F3E7CF; font-size: 16px; margin-left: -1px;">
+            </div>
+                <input type="email" id="email" placeholder="Email" style="width: 100%; padding: 14px 16px; margin-bottom: 18px; border: 1px solid #D4B06A; background: rgba(0,0,0,0.4); color: #F3E7CF; font-size: 16px;"><br>
+                <input type="text" id="message" placeholder="Message" style="width: 100%; padding: 14px 16px; margin-bottom: 18px; border: 1px solid #D4B06A; background: rgba(0,0,0,0.4); color: #F3E7CF; font-size: 16px;"><br>
+            <div class="row">
+                <input type="date" id="date" style="width: 100%; padding: 14px 16px; margin-bottom: 18px; border: 1px solid #D4B06A; background: rgba(0,0,0,0.4); color: #F3E7CF; font-size: 16px;">
+                <input type="time" id="time" style="width: 100%; padding: 14px 16px; margin-bottom: 18px; border: 1px solid #D4B06A; background: rgba(0,0,0,0.4); color: #F3E7CF; font-size: 16px; margin-left: -1px;">
+            </div>
             <button id="ok" class="add">Submit</button>
 
         </form>
